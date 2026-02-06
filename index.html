@@ -42,6 +42,20 @@
 </head>
 
 <body>
+    <script>
+  const SECRET_PASSWORD = "arnav"; // 🔴 CHANGE THIS
+
+  const userPassword = prompt("🔐 This page is private.\nHint: Our nickname 💕");
+
+  if (userPassword !== SECRET_PASSWORD) {
+    document.body.innerHTML = `
+      <h2 style="text-align:center;margin-top:40vh;">
+        🚫 Access Denied
+      </h2>
+    `;
+  }
+</script>
+
 
 <div class="box" id="content">
    <h1>Will You Be My Valentine, <span class="name">NAVYA SACHDEVA</span>? 💘</h1>
