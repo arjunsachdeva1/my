@@ -42,45 +42,48 @@
 </head>
 
 <body>
-    <script>
-  const SECRET_PASSWORD = "arnav"; // 🔴 CHANGE THIS
+  <body>
 
-  const userPassword = prompt("🔐 This page is private.\nHint: Our nickname 💕");
+<!-- PASSWORD SCREEN -->
+<div id="lockScreen">
+    <h2>🔒 Private Valentine Page</h2>
+    <p>Hint: Our special nickname 💕</p>
+    <input type="password" id="passwordInput" placeholder="Enter password" />
+    <br><br>
+    <button onclick="checkPassword()">Unlock ❤️</button>
+    <p id="errorMsg" style="color:red;"></p>
+</div>
 
-  if (userPassword !== SECRET_PASSWORD) {
-    document.body.innerHTML = `
-      <h2 style="text-align:center;margin-top:40vh;">
-        🚫 Access Denied
-      </h2>
-    `;
-  }
-</script>
+<!-- MAIN WEBSITE (HIDDEN INITIALLY) -->
+<div id="mainContent" style="display:none;">
+    <h1>💖 Will You Be My Valentine? 💖</h1>
+    <p>This page is only for you ❤️</p>
 
+    <button onclick="yesClicked()">YES 💘</button>
+    <button onclick="noClicked()">NO 😢</button>
 
-<div class="box" id="content">
-   <h1>Will You Be My Valentine, <span class="name">NAVYA SACHDEVA</span>? 💘</h1>
-
-    <button onclick="yesClicked()">YES 💖</button>
-    <button onmouseover="moveNo(this)">NO 😅</button>
+    <p id="result"></p>
 </div>
 
 <script>
-function moveNo(btn) {
-    btn.style.position = "relative";
-    btn.style.left = Math.random() * 200 - 100 + "px";
-    btn.style.top = Math.random() * 200 - 100 + "px";
+function checkPassword() {
+    const correctPassword = "babygirl"; // 🔴 CHANGE THIS
+    const entered = document.getElementById("passwordInput").value;
+
+    if (entered === correctPassword) {
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+    } else {
+        document.getElementById("errorMsg").innerText = "Access Denied ❌";
+    }
 }
 
 function yesClicked() {
-    document.body.innerHTML = `
-        <div class="box">
-            <h1>YAYYY 🎉💖</h1>
-            <p>You just made me the happiest person 😭❤️</p>
-            <h2>Happy Valentine’s Day 💘</h2>
-        </div>
-    `;
+    document.getElementById("result").innerHTML = "🥰 YAYYYY!! You made me the happiest person 💖";
 }
-</script>
+
+function noClicked() {
+    document.getElement
 
 </body>
 </html>
